@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <title>Descubra se isso é para você</title>
+  <meta charset="UTF-8">
+  <title>Site 1 - Verificação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #botao2 {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 40px;">
-  <h2>🚨 Esta oportunidade é para você?</h2>
-  <p>Leia com atenção e responda sinceramente:</p>
+<body>
+  <h1>Você se identifica com este assunto?</h1>
+  <button onclick="mostrarSegundoBotao()">Próximo</button>
 
-  <button onclick="alert('Ok, então clique em Próximo 👇')">Você se identifica com este assunto?</button>
-  <br><br>
-  <button onclick="window.location.href='https://seunome.github.io/site2'">Próximo</button>
+  <div id="botao2">
+    <p>Confirme para continuar:</p>
+    <button onclick="irParaSite2()">Prosseguir</button>
+  </div>
+
+  <script>
+    function mostrarSegundoBotao() {
+      document.getElementById('botao2').style.display = 'block';
+    }
+
+    function irParaSite2() {
+      window.location.href = "https://arthur1312qr.github.io/site2/";
+    }
+  </script>
 </body>
 </html>
