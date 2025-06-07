@@ -72,13 +72,22 @@
   <div class="container">
     <h1>Bem-vindo ao meu site!</h1>
     <p>Este site usa anúncios automáticos do Google.</p>
+    
+    <!-- Botão 1 -->
     <button id="primeiroBotao" onclick="mostrarSegundoBotao()">Clique aqui</button>
-    <button id="segundoBotao">Você realmente se interessa pelo produto?</button>
+    
+    <!-- Botão 2 -->
+    <button id="segundoBotao" onclick="redirecionar()">Você realmente se interessa pelo produto?</button>
   </div>
 
   <script>
     function mostrarSegundoBotao() {
+      document.getElementById('primeiroBotao').style.display = 'none';
       document.getElementById('segundoBotao').style.display = 'inline-block';
+    }
+
+    function redirecionar() {
+      window.location.href = "https://genuine-naiad-021379.netlify.app";
     }
   </script>
 </body>
