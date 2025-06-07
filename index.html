@@ -9,24 +9,23 @@
       text-align: center;
       margin-top: 100px;
     }
-    #botao2 {
+    #botaoProximo {
       display: none;
       margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Você se identifica com este assunto?</h1>
-  <button onclick="mostrarSegundoBotao()">Próximo</button>
+  <h1>Você se identifica com este produto?</h1>
+  <button onclick="mostrarBotaoProximo()">Sim</button>
 
-  <div id="botao2">
-    <p>Confirme para continuar:</p>
-    <button onclick="irParaSite2()">Prosseguir</button>
+  <div id="botaoProximo">
+    <button onclick="irParaSite2()">Próximo</button>
   </div>
 
   <script>
-    function mostrarSegundoBotao() {
-      document.getElementById('botao2').style.display = 'block';
+    function mostrarBotaoProximo() {
+      document.getElementById('botaoProximo').style.display = 'block';
     }
 
     function irParaSite2() {
