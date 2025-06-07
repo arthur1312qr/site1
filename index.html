@@ -5,12 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Site com AdSense</title>
 
-  <!-- Meta tag do Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-7240870718266726">
-
-  <!-- Script do Google AdSense atualizado -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7240870718266726"
-          crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="ca-pub-7240870718266726" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7240870718266726" crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -19,11 +15,6 @@
       padding: 20px;
       background-color: #f2f2f2;
       text-align: center;
-    }
-
-    h1 {
-      font-size: 2em;
-      color: #333;
     }
 
     .container {
@@ -50,50 +41,78 @@
       background-color: #0056b3;
     }
 
-    #segundoBotao {
-      display: none;
+    #confirmarInteresse {
       background-color: #28a745;
+      margin-top: 20px;
+      display: none;
     }
 
-    #segundoBotao:hover {
+    #confirmarInteresse:hover {
       background-color: #1e7e34;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5em;
-      }
+    #aviso-adblock {
+      display: none;
+      padding: 40px;
+      background: #fff3cd;
+      color: #856404;
+      margin-top: 30px;
+      border-radius: 12px;
+    }
 
+    @media (max-width: 600px) {
       button {
         width: 100%;
         font-size: 1em;
       }
     }
   </style>
+
+  <script>
+    function mostrarConfirmacao() {
+      document.getElementById("botaoPrincipal").style.display = "none";
+      document.getElementById("confirmarInteresse").style.display = "inline-block";
+    }
+
+    function detectarAdblock() {
+      const bait = document.createElement('div');
+      bait.className = 'adsbox';
+      bait.style.height = '1px';
+      document.body.appendChild(bait);
+
+      setTimeout(() => {
+        if (bait.offsetHeight === 0) {
+          document.getElementById("conteudo").style.display = "none";
+          document.getElementById("aviso-adblock").style.display = "block";
+        }
+        document.body.removeChild(bait);
+      }, 100);
+    }
+
+    window.onload = detectarAdblock;
+  </script>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="conteudo">
     <h1>Bem-vindo ao meu site!</h1>
     <p>Este site usa anúncios automáticos do Google.</p>
 
-    <!-- Botão 1 -->
-    <button id="primeiroBotao" onclick="mostrarSegundoBotao()">Clique aqui</button>
+    <button id="botaoPrincipal" onclick="mostrarConfirmacao()">Clique aqui</button>
 
-    <!-- Botão 2 -->
-    <button id="segundoBotao" onclick="redirecionar()">Você realmente se interessa pelo produto?</button>
+    <button id="confirmarInteresse" onclick="window.location.href='https://genuine-naiad-021379.netlify.app'">
+      Você realmente se interessa pelo produto?
+    </button>
+
+    <!-- Anúncio AdSense -->
+    <br><br>
+    <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <script>
-    function mostrarSegundoBotao() {
-      document.getElementById('primeiroBotao').style.display = 'none';
-      document.getElementById('segundoBotao').style.display = 'inline-block';
-    }
-
-    function redirecionar() {
-      window.location.href = "https://genuine-naiad-021379.netlify.app";
-    }
-  </script>
+  <div id="aviso-adblock">
+    <h3>😥 Detectamos AdBlock</h3>
+    <p>Por favor, desative seu bloqueador de anúncios para continuar acessando nosso conteúdo gratuito.</p>
+    <button onclick="location.reload()">Já desativei, recarregar</button>
+  </div>
 </body>
 </html>
-
-
